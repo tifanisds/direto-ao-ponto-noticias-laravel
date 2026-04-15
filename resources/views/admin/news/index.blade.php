@@ -4,7 +4,7 @@
 <div class="card">
     <div class="card-header d-flex justify-content-between px-4 py-4 align-items-center">
         <h4 class="mb-0">Notícias cadastradas</h4>
-        <a class="btn btn-primary" href="/news/create">Nova</a>
+        <a class="btn btn-success d-flex align-items-center" href="{{ route("news.create") }}"><i class="bi bi-plus-lg me-2"></i>Nova</a>
     </div>
 
     <div class="card-body">
