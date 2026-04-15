@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateNewsRequest;
 use Illuminate\Http\Request;
 use App\Models\News; 
 
@@ -17,9 +18,9 @@ class NewsController extends Controller
         return view('admin.news.create');
     }
 
-    public function store(Request $request) 
+    public function store(CreateNewsRequest $request) 
     {
-        // Lógica para salvar
+        dd($request->all());
     }
 
     public function show(News $news) 
