@@ -17,7 +17,7 @@ class NewsController extends Controller
 
     public function index() 
     {
-        $news = $this->news->all();
+        $news = $this->news->orderBy('id', 'desc')->paginate(10);
 
         return view('admin.news.index', compact('news'));
     }
