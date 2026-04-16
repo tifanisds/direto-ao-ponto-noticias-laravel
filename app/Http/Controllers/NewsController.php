@@ -46,10 +46,13 @@ class NewsController extends Controller
         return view('admin.news.edit', compact('news'));
     }
 
-    // Onde estava o erro de sintaxe principal:
-    public function update(Request $request, News $news)
+    public function update(CreateNewsRequest $request, News $news)
     {
-        // Lógica para atualizar
+        $news->update($request->all());
+
+        session()->flash("success", "O registro foi atualizado com sucesso");
+
+        return redirect()->back();
     }
 
     public function destroy(News $news)

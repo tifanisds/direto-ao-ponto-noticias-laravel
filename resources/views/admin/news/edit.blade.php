@@ -1,0 +1,45 @@
+@extends('admin.template.layout')
+@section('main')
+    @if (session()->has('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            Não foi possível realizar esta operação:
+            <ul class="mt-2 mb-0">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+    <div class="card">
+        <div class="card-header d-flex justify-content-between px-4 py-4 align-items-center">
+            <h4 class="mb-0">Atualizar notícia</h4>
+            <a class="btn btn-primary d-flex align-items-center" href="{{ route('news.index') }}"><i
+                    class="bi bi-arrow-left me-2"></i>Voltar</a>
+        </div>
+        <div class="card-body">
+
+            <div class="row">
+                <div class="col-md-12">
+
+                    <form action="{{ route("news.update", $news->id) }}" method="post">
+
+                        @csrf
+                        @method('put')
+
+                        @include("admin.news.partials.form")
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+@endsection
