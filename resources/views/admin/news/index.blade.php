@@ -32,7 +32,7 @@
                                     @csrf
                                     @method('delete')
                                     <a href="{{ route('news.edit', $item->id) }}" class="btn btn-sm btn-primary">Editar</a>
-                                    <button type="submit" class="btn btn-sm btn-danger">Excluir</button>
+                                    <button onClick="if (confirm('Você tem certeza que deseja deletar essa notícia?')) { this.form.submit() }" type="button" class="btn btn-sm btn-danger">Excluir</button>
                                 </form>
                             </td>
                     </tr>
