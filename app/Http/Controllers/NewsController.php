@@ -8,6 +8,13 @@ use App\Models\News;
 
 class NewsController extends Controller
 {
+    private $news;
+
+    public function __construct(News $news) 
+    {
+        $this->news = $news;
+    }
+
     public function index() 
     {
         return view('admin.news.index');
@@ -20,7 +27,11 @@ class NewsController extends Controller
 
     public function store(CreateNewsRequest $request) 
     {
-        dd($request->all());
+        $this->news->create($request->all());
+
+        session()->flash("success", "O registro foi gravado com sucesso");
+
+        return redirect()->back();
     }
 
     public function show(News $news) 

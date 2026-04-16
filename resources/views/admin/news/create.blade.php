@@ -1,9 +1,11 @@
 @extends("admin.template.layout")
 @section("main")
-
+@if(session()->has('success'))
     <div class="alert alert-success">
-        Registro cadastrado com sucesso!
+        {{ session('success') }}
     </div>
+@endif
+
 @if($errors->any())
     <div class="alert alert-danger">
         Não foi possível realizar esta operação:
