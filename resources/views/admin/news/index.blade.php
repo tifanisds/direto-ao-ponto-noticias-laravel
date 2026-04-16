@@ -21,27 +21,18 @@
             </thead>
 
             <tbody>
-                <tr>
-                    <th class="align-middle" scope="row">2</th>
-                        <td class="align-middle">Obesidade é o maior vilão da saúde em 2022</td>
-                        <td class="align-middle">Saúde</td>
-                        <td class="align-middle">25/03/2023 às 18h33</td>
-                        <td class="align-middle">
-                    <button type="button" class="btn btn-sm btn-primary">Editar</button>
-                            <button type="button" class="btn btn-sm btn-danger">Excluir</button>
-                        </td>
-                </tr>
-
-                <tr>
-                    <th class="align-middle" scope="row">1</th>
-                        <td class="align-middle">Como descartar adequadamente baterias depois do seu uso</td>
-                        <td class="align-middle">Meio ambiente!</td>
-                        <td class="align-middle">25/03/2023 às 17h25</td>
-                        <td class="align-middle">
-                            <button type="button" class="btn btn-sm btn-primary">Editar</button>
-                            <button type="button" class="btn btn-sm btn-danger">Excluir</button>
-                        </td>
-                </tr>
+                @foreach ($news as $item)
+                    <tr>
+                        <th class="align-middle" scope="row">{{ $item->id }}</th>
+                            <td class="align-middle">{{ $item->title }}</td>
+                            <td class="align-middle">Saúde</td>
+                            <td class="align-middle">{{ $item->created_at->format('d/m/Y à\s H\hi') }}</td>
+                            <td class="align-middle">
+                                <button type="button" class="btn btn-sm btn-primary">Editar</button>
+                                <button type="button" class="btn btn-sm btn-danger">Excluir</button>
+                            </td>
+                    </tr>
+                @endforeach 
             </tbody>
         </table>
 
